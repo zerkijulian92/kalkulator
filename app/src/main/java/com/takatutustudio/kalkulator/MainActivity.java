@@ -69,10 +69,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button0:
-                editTextLayar.setText("0");
-            break;
+                editTextLayar.setText(editTextLayar.getText().toString().trim()+"0");
+                break;
+
             case R.id.button1:
-                editTextLayar.setText("1");
+                editTextLayar.setText(editTextLayar.getText().toString().trim()+"1");
+                break;
+
+            case R.id.button2:
+                editTextLayar.setText(editTextLayar.getText().toString().trim()+"2");
+                break;
+
+            case R.id.button3:
+                editTextLayar.setText(editTextLayar.getText().toString().trim()+"3");
+                break;
+
+            case R.id.button4:
+                editTextLayar.setText(editTextLayar.getText().toString().trim()+"4");
+                break;
+
+            case R.id.button5:
+                editTextLayar.setText(editTextLayar.getText().toString().trim()+"5");
+                break;
+
+            case R.id.button6:
+                editTextLayar.setText(editTextLayar.getText().toString().trim()+"6");
+                break;
+
+            case R.id.button7:
+                editTextLayar.setText(editTextLayar.getText().toString().trim()+"7");
+                break;
+
+            case R.id.button8:
+                editTextLayar.setText(editTextLayar.getText().toString().trim()+8);
+                break;
+
+            case R.id.button9:
+                editTextLayar.setText(editTextLayar.getText().toString().trim()+"9");
         }
     }
 }
