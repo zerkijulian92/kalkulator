@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextLayar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -39,10 +39,10 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="@+id/editTextLayar"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintStart_toStartOf="@+id/editTextLayar"
+        app:layout_constraintTop_toBottomOf="@+id/editTextLayar"
         app:layout_constraintVertical_bias="0.0">
 
         <TableRow
@@ -50,25 +50,25 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/button0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0" />
 
             <Button
-                android:id="@+id/buttonClear"
+                android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1" />
 
             <Button
-                android:id="@+id/buttonHide"
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2" />
 
             <Button
-                android:id="@+id/buttonHide"
+                android:id="@+id/buttonTambah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="+" />
@@ -79,25 +79,25 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3" />
 
             <Button
-                android:id="@+id/buttonClear"
+                android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4" />
 
             <Button
-                android:id="@+id/buttonHide"
+                android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5" />
 
             <Button
-                android:id="@+id/buttonHide"
+                android:id="@+id/buttonKurang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-" />
@@ -108,25 +108,25 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="6" />
 
             <Button
-                android:id="@+id/buttonClear"
+                android:id="@+id/button7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="7" />
 
             <Button
-                android:id="@+id/buttonHide"
+                android:id="@+id/button8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="8" />
 
             <Button
-                android:id="@+id/buttonHide"
+                android:id="@+id/buttonBagi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=":" />
@@ -150,14 +150,13 @@
                 android:text="Clear" />
 
             <Button
-                android:id="@+id/buttonHide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Button"
                 tools:visibility="invisible" />
 
             <Button
-                android:id="@+id/buttonHide"
+                android:id="@+id/buttonKali"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="x" />
