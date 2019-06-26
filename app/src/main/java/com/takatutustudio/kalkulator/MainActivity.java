@@ -5,13 +5,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.lang.ref.SoftReference;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText editTextLayar;
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
     Button buttonTambah, buttonKurang, buttonBagi, buttonKali;
-    Button buttonClear;
+    Button buttonClear, buttonSamaDengan;
+
+    public static double nilaiSekarang    = 0;
+    public static String operasiSekarang  = "";
+    public static double hasil            = 0.0;
 
 
     @Override
@@ -24,25 +31,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     void init() {
 
-        editTextLayar = (EditText) findViewById(R.id.editTextLayar);
+        editTextLayar    = (EditText) findViewById(R.id.editTextLayar);
 
-        button0       = (Button) findViewById(R.id.button0);
-        button1       = (Button) findViewById(R.id.button1);
-        button2       = (Button) findViewById(R.id.button2);
-        button3       = (Button) findViewById(R.id.button3);
-        button4       = (Button) findViewById(R.id.button4);
-        button5       = (Button) findViewById(R.id.button5);
-        button6       = (Button) findViewById(R.id.button6);
-        button7       = (Button) findViewById(R.id.button7);
-        button8       = (Button) findViewById(R.id.button8);
-        button9       = (Button) findViewById(R.id.button9);
+        button0          = (Button) findViewById(R.id.button0);
+        button1          = (Button) findViewById(R.id.button1);
+        button2          = (Button) findViewById(R.id.button2);
+        button3          = (Button) findViewById(R.id.button3);
+        button4          = (Button) findViewById(R.id.button4);
+        button5          = (Button) findViewById(R.id.button5);
+        button6          = (Button) findViewById(R.id.button6);
+        button7          = (Button) findViewById(R.id.button7);
+        button8          = (Button) findViewById(R.id.button8);
+        button9          = (Button) findViewById(R.id.button9);
 
-        buttonTambah  = (Button) findViewById(R.id.buttonTambah);
-        buttonKurang  = (Button) findViewById(R.id.buttonKurang);
-        buttonBagi    = (Button) findViewById(R.id.buttonBagi);
-        buttonKali    = (Button) findViewById(R.id.buttonKali);
+        buttonTambah     = (Button) findViewById(R.id.buttonTambah);
+        buttonKurang     = (Button) findViewById(R.id.buttonKurang);
+        buttonBagi       = (Button) findViewById(R.id.buttonBagi);
+        buttonKali       = (Button) findViewById(R.id.buttonKali);
 
-        buttonClear   = (Button) findViewById(R.id.buttonClear);
+        buttonClear      = (Button) findViewById(R.id.buttonClear);
+        buttonSamaDengan = (Button) findViewById(R.id.buttonSamaDengan);
 
 
         button0.setOnClickListener(this);
@@ -62,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonKali.setOnClickListener(this);
 
         buttonClear.setOnClickListener(this);
+        buttonSamaDengan.setOnClickListener(this);
 
     }
 
@@ -101,11 +110,102 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.button8:
-                editTextLayar.setText(editTextLayar.getText().toString().trim()+8);
+                editTextLayar.setText(editTextLayar.getText().toString().trim()+"8");
                 break;
 
             case R.id.button9:
                 editTextLayar.setText(editTextLayar.getText().toString().trim()+"9");
+                break;
+
+                /*----------------------------------*/
+
+            case R.id.buttonTambah:
+
+                if (editTextLayar.getText().toString().trim().equals("")) {
+                    Toast.makeText(MainActivity.this, "Angka Harus di isi", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                operasiSekarang = "tambah";
+                nilaiSekarang = Double.parseDouble(editTextLayar.getText().toString());
+                editTextLayar.setText("");
+                break;
+
+            case R.id.buttonKurang:
+
+                if (editTextLayar.getText().toString().trim().equals("")) {
+                    Toast.makeText(MainActivity.this, "Angka Harus di isi", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                operasiSekarang = "kurang";
+                nilaiSekarang = Double.parseDouble(editTextLayar.getText().toString());
+                editTextLayar.setText("");
+                break;
+
+            case R.id.buttonBagi:
+
+                if (editTextLayar.getText().toString().trim().equals("")) {
+                    Toast.makeText(MainActivity.this, "Angka Harus di isi", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                operasiSekarang = "bagi";
+                nilaiSekarang = Double.parseDouble(editTextLayar.getText().toString());
+                editTextLayar.setText("");
+                break;
+
+            case R.id.buttonKali:
+
+                if (editTextLayar.getText().toString().trim().equals("")) {
+                    Toast.makeText(MainActivity.this, "Angka Harus di isi", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                operasiSekarang = "kali";
+                nilaiSekarang = Double.parseDouble(editTextLayar.getText().toString());
+                editTextLayar.setText("");
+                break;
+
+                /*----------------------------------*/
+
+            case R.id.buttonClear:
+                nilaiSekarang = 0;
+                editTextLayar.setText("");
+                break;
+                /*-----------------------------------*/
+
+            case R.id.buttonSamaDengan:
+
+                if (operasiSekarang.equals("tambah")) {
+                    hasil = nilaiSekarang+Double.parseDouble(editTextLayar.getText().toString().trim());
+                }
+                if (operasiSekarang.equals("kurang")) {
+                    hasil = nilaiSekarang-Double.parseDouble(editTextLayar.getText().toString().trim());
+                }
+                if (operasiSekarang.equals("bagi")) {
+                    hasil = nilaiSekarang/Double.parseDouble(editTextLayar.getText().toString().trim());
+                }
+                if (operasiSekarang.equals("kali")) {
+                    hasil = nilaiSekarang*Double.parseDouble(editTextLayar.getText().toString().trim());
+                }
+
+                /*hasil = 2.1*/
+                /*nilaiTemp = 2*/
+                int nilaiTemp = (int) hasil;
+
+                //2.1 == 2? tidak sama
+                if (nilaiTemp == hasil) {
+                    editTextLayar.setText(String.valueOf((int)hasil));
+                } else {
+                    editTextLayar.setText(String.valueOf(hasil));
+                }
+
+
+
+                break;
+
+
         }
     }
 }
